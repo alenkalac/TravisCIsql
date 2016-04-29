@@ -1,17 +1,9 @@
 language: php
 php:
  - '5.6'
-  
-services:
- - mysql
- 
 
 install: 
  composer update
 
-before_script:
-- mysql -u root -e 'CREATE DATABASE travis;'
-- mysql -u root travis < database/travis.sql
-
 script: 
-- phpunit
+ - phpunit

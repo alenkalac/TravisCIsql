@@ -1,15 +1,14 @@
 <?php
+	
 	use alen\Database;
 
 	class UserTest extends PHPUnit_Framework_TestCase {
-		
-		public function testDBSuccess() {
-			$database = new Database();
+		public function testUserAdminEqualsAdmin() {
+			$db = new Database();
 			
-			$checkAdmin = $database->checkPassword("admin", "admin1");
+			$result = $db->checkPassword("admin", "admin");
 			
-			$this->assertEquals("Correct", $checkAdmin);
+			$this->assertEquals("Correct", $result);
 		}
-		
 	}
 ?>

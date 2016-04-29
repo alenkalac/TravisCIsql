@@ -32,8 +32,8 @@ class Database {
 	private $password = '';
 	
 	/**
-	 * 
-	 * @var unknown
+	 * The host address to where the server is
+	 * @var string
 	 */
 	private $host = 'localhost:3307';
 	
@@ -47,11 +47,7 @@ class Database {
 	 * Default constructor for the Database Class
 	 */
 	public function __construct() {
-		try 
-		{
-			if(getenv('TRAVIS'))
-				$this->host = '127.0.0.1';
-			
+		try {
 			$this->databaseConnection = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
 			$this->databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return true;
@@ -68,9 +64,24 @@ class Database {
 		
 		$result = $query->fetch(PDO::FETCH_ASSOC);
 		
-		if($result['password'] === $password) return "Correct"; 
-		else return "Wrong";
+		if($result['password'] === $password)
+			return "Correct"; 
+		else 
+			return "Incorrect";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
