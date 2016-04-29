@@ -48,6 +48,10 @@ class Database {
 	 */
 	public function __construct() {
 		try {
+			
+			if(getenv("TRAVIS"))
+				$this->host = '127.0.0.1';
+			
 			$this->databaseConnection = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
 			$this->databaseConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return true;
