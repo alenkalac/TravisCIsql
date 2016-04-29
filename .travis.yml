@@ -11,7 +11,7 @@ install:
 
 before_script:
 - mysql -u root -e 'CREATE DATABASE travis;'
-- mysql -u root php_project_1 < database/travis.sql
+- mysql -u root travis < database/travis.sql
 
 script: 
 - phpunit
